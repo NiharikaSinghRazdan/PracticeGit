@@ -131,12 +131,7 @@ resource "aws_route_table_association" "Public1" {
 #          route_table_id = aws_route_table.DevopsPrivateRoute.id
 #}
 
-#Associate Private subnets to Private Route
-#resource "aws_route_table_association" "Private2" {
-#          subnet_id      = aws_subnet.Private_Subnet2.id
-#          route_table_id = aws_route_table.DevopsPrivateRoute.id
-#}
-        
+     
 #Associate Security Group to VPC
 resource "aws_security_group" "VPCSG"{
 #          name         = "DevOps VPC Security Group"

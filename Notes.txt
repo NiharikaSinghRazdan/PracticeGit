@@ -1,0 +1,23 @@
+ cd /c/Users/Administrator/Downloads/Practice_Work/Git_Work
+
+git commit -m "Updated content to remove private route table"
+
+
+** How to set username for git
+git config --global user.name "Niharika"
+** check the user name configuration
+git config --global user.name
+
+**How to set the email address for git
+git config --global user.email "enter email address"
+** check the email address configuration
+git config --global user.email
+
+**change your directory from where you want to push the scripts/codes
+cd /directory (use forward slashes for the directory path)
+
+git remote add origin "url of the repository where you want to push the code"
+git init
+git add .
+git commit
+git push origin master
