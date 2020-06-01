@@ -21,3 +21,10 @@ git init
 git add .
 git commit
 git push origin master
+
+#You include files and folders which you do not want to push to your git repo. You make .gitignore file and 
+#mention the folder or file which you want to ignore.
+#If you ahve committed the changes and after that you are trying to make .gitignore file then may be it doesn't
+#work.
+#You have to remove .git folder and start from git init step to include new changes. The reason is that file
+#or folder is already included in Local repo after your commit.
