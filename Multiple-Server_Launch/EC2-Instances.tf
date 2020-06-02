@@ -5,7 +5,7 @@ resource "aws_instance" "Instance-Create"{
     ami=var.ami
     availability_zone=var.a-zone
     key_name="AnsibleKeyPair"
-    
+# use interpolation to name the created instances using count.index   
     tags ={
         Name="Instance-Create-${count.index}"
     }
