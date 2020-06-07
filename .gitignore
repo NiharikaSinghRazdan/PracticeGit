@@ -1,2 +1,9 @@
 /Multiple-Server_Launch/.terraform/*
+<<<<<<< HEAD
 /Single-Server_Launch/.terraform/*
+=======
+/Single-Server_Launch/.terraform/*
+/Module_Launch/.terraform/*
+/Code_Check/.terraform/*
+/ASG_Server_Launch/.terraform/*
+>>>>>>> 75ea139... new changes

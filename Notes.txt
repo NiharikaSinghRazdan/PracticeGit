@@ -1,3 +1,4 @@
+<<<<<<< HEAD
  cd /c/Users/Administrator/Downloads/Practice_Work/Git_Work
 
 git commit -m "Updated content to remove private route table"
@@ -28,3 +29,62 @@ git push origin master
 #work.
 #You have to remove .git folder and start from git init step to include new changes. The reason is that file
 #or folder is already included in Local repo after your commit.
+=======
+Helpful commands in terraform:
+
+==> terraform show
+
+==> terraform graph
+this command will give the output in json format. Copy that code and go to any online graph creator;
+"graphviz" here you paste that code and it will generate the graph.
+
+==> terraform get
+==> terraform validate
+
+==> terraform taint, manually mark a resource for recreation
+In one stack you have created multiple resources and now you want to update argument for one resource. Then what will you do?
+You have to destroy everything and recreate the resources again but that is not the best pratice, best is to use terraform taint.
+When you mark any resource taint, only it will be recreated.
+
+==> terraform plan -target=resource
+    terraform apply -target=resource
+    terraform destroy - target=resource
+In your stack, if you want to some activities to be happen on single resource then you use -target in respective commands.
+
+==> terraform plan/apply -var="var_name=var_value"
+When you have only one variable in your stack and use command line to pass the variable value, then use -var.
+
+#Variable values can be defined in .tfvars file. Suppose you have created some resources using terraform code and var file. Now you need to use the same terraform code but different value. What you can do, rename that var file and then create the resources? Its ok to follow but the different and more accurate procedure is to use .tfvars file.
+#terraform apply -var-file="file_name.tfvars"
+
+
+# Parent module accessing child module output:
+module.<child module name>.<output variable declared in child module>
+
+# You have craeted one folder and all the terraform codes for resource creation are inside this folder then this particular folder is called "Module".
+Suppose this is development folder and you ahve to create testing and production env with these codes. What you will do? You will create two different folders and copy the codes in these two folders.
+But, this is not the adequate approach, you should avoid to code again and again. You should use Module functionality.
+==> module "module-name"{
+       source ="path of the folder which you want to follow"
+    }
+
+If in your code everything is hard-coded and you have not used variables then it will not be possible to change any argument value. So its better to use variables and you can change that value while using module. i.e.
+==> module "module-name"{
+       source="path of the code folder"
+       instance_type="t2.large" ----> in the code instance was t2.micro but you want to create t2.large. So this is the way to do it.
+    }
+
+#Get the output for your created module resource; create output.tf file
+==> output "output-variable"{
+          value="{module.module-name.variable-name for the output which you used in parent folder}"
+    }
+
+
+#module source with git url
+git::<your git-url>//<folder/subfolder/module-path>?<git-tag or version of module>
+git::https://github.com/NiharikaSinghRazdan/PracticeGit_Terraform//ASG_Server_Launch?ref=v0.0.8
+we upload the code in git repository and any user can change the code from that repository, so to make it consistent we can use source for module as git url.
+==> module "module-name"{
+    source="git::<your git-url>//<folder/subfolder/module-path>?<git-tag or version of module>"
+    }
+>>>>>>> 75ea139... new changes
