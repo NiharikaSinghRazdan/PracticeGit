@@ -7,3 +7,6 @@
 /Code_Check/.terraform/*
 /ASG_Server_Launch/.terraform/*
 >>>>>>> 75ea139... new changes
+
+.git/*
+.terraform/*
