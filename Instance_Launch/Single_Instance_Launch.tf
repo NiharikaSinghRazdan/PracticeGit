@@ -10,10 +10,10 @@ tags={
      }
 user_data = <<-EOF
  #!/bin/bash
-    /usr/bin/yum update
-    /usr/bin/yum install httpd -y
+    sudo yum update
+    sudo yum install httpd -y
     sudo service httpd start
-    /usr/bin/ chkconfig httpd on
+    sudo chkconfig httpd on
     /bin/echo "Hello from " >/var/www/html/index.html
     instance_ip=`curl http://169.254.169.254/latest/meta-data/public-ipv4`
     echo $instance_ip >>/var/www/html/index.html
