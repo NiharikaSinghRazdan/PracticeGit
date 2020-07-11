@@ -1,4 +1,4 @@
-resource "aws_instance" "EC2-Instance" {
+resource "aws_instance" "EC2_Instance" {
     availability_zone = var.az
     instance_type = var.instance_type
     ami= var.ami
@@ -19,3 +19,5 @@ user_data = <<-EOF
     echo $instance_ip >>/var/www/html/index.html
  EOF
 }
+
+
