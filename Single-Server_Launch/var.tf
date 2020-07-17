@@ -14,3 +14,7 @@ variable "mysystem" {
     default="172.31.0.0/16"
   
 }
+
+variable "ami"{
+    default="ami-0e9089763828757e1"
+}
