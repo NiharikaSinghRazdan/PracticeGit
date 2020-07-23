@@ -1,0 +1,41 @@
+#Execute below code to install wordpress in one of the instances
+sudo su
+sudo apt-get update
+sudo apt-get install apache2
+sudo systemctl restart apache2
+sudo apt install php libapache2-mod-php php-mysql
+sudo nano /etc/apache2/mods-enabled/dir.conf
+## make index.php page first to be displayed
+sudo systemctl restart apache2
+## install mysql server
+sudo apt-get install mysql-server -y
+mysql_secure_installation
+sudo service mysqld start
+sudo mysql -u root -p
+#press enter when prompted for password
+create user 'wordpressuser'@'localhost' identified by 'Admin@123';
+create database 'wordpress-db';
+grant all privileges on 'wordpress-db'.* to "wordpressuser"@"localhost";
+flush privileges;
+exit
+## exit from mysql server
+## install wordpress and unzip the file
+cd var/www/html
+wget httpd://wordpress.org/latest.tar.gz
+tar -xzvf latest.tar.gzcd
+mv wordpress blog
+cd blog
+sudo cp wp-config-sample.php wp-config.php
+sudo nano wp-config.php
+# enter the user, database and password which you created for mysql. Save and exit
+# open the browser and enter public-DNS name of ubuntu instance /blog
+
+
+
+
+
+
+
+
+
+
